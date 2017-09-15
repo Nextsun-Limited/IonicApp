@@ -3,16 +3,33 @@
     <button menuToggle *ngIf="!selectedItem">
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>Item Details</ion-title>
+    <ion-title>selectedItem Details</ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content>
-  <h3 text-center *ngIf="selectedItem">
-    {{selectedItem.title}}
-    <ion-icon [name]="selectedItem.picture"></ion-icon>
-  </h3>
-  <h4 text-center *ngIf="selectedItem">
-    You navigated here from <b>{{selectedItem.name}}</b>
-  </h4>
+
+  <ion-grid>
+    <ion-row>
+      <ion-col col-12 col-md-5>
+        <img  *ngIf="item" src="{{item.picture}}">
+      </ion-col>
+      <ion-col col-12 col-md-6>
+        <h3 *ngIf="item">
+          {{item.name}}
+        </h3>
+        <ul  *ngIf="selectedItem">
+          <li>Age: {{item.birth_year}}</li>
+          <li>Gender: {{item.gender}}</li>
+          <li>Species: {{item.species}}</li>
+          <li>Homeworld: {{item.homeworld}}</li>
+          <li>Mass: {{selectedItem.mass}}</li>
+          <li>Eye color: {{selectedItem.eye_color}}</li>
+          <li>Hair color: {{selectedItem.hair_color}}</li>
+          <li>Skin color: {{selectedItem.skin_color}}</li>
+        </ul>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
 </ion-content>

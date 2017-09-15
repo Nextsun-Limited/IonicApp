@@ -8,12 +8,20 @@
 </ion-header>
 
 <ion-content>
-  <ion-list>
-    <button ion-item *ngFor="let item of items" (click)="itemTapped($event, item)">
-      <ion-thumbnail item-start>
-        <img src="{{item.picture}}">
-      </ion-thumbnail>
-      {{item.name}}
-    </button>
-  </ion-list>
+
+  <ion-grid>
+    <ion-row>
+      <ion-col ion-item *ngFor="let item of items" col-12 col-sm-9 col-md-6 col-lg-4 col-xl-3>
+
+        <ion-card>
+          <img src="{{item.picture}}" (click)="itemTapped($event, item)">
+          <div class="card-title" (click)="itemTapped($event, item)">{{item.name}}</div>
+          <div class="card-subtitle" (click)="itemTapped($event, item)">{{item.species}} from {{item.homeworld}}. Age: {{item.birth_year}}</div>
+        </ion-card>
+
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+
 </ion-content>

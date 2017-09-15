@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { ItemDetailsPage } from '../item-details/item-details';
+import { StarWarsProvider } from '../../providers/star-wars/star-wars'
 
 @Component({
   selector: 'page-list',
@@ -8,17 +9,18 @@ import { ItemDetailsPage } from '../item-details/item-details';
 })
 export class ListPage {
   icons: string[];
-  items: Array<{name: string, picture: string}>;
+  items: Array<{name: string, icon: string}>;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(
+    public navCtrl: NavController,
+    public navParams: NavParams,
+    private starWars: StarWarsProvider
+  ) {
 
-    this.items = [];
-    for(let i = 1; i < 11; i++) {
-      this.items.push({
-        name: 'Item ' + i,
-        picture: ''
-      });
-    }
+    this.starWars.GetPeopleList().subscribe(data => {
+      this.items = data;
+    });
+
   }
 
   itemTapped(event, item) {
