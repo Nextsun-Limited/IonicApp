@@ -21,8 +21,8 @@
         <ion-list  *ngIf="selectedItem">
           <ion-item>Age: {{item.birth_year}}</ion-item>
           <ion-item>Gender: {{item.gender}}</ion-item>
-          <ion-item>Species: {{item.species}}</ion-item>
-          <ion-item>Homeworld: {{item.homeworld}}</ion-item>
+          <ion-item>Species: {{item.species.name}}</ion-item>
+          <ion-item>Homeworld: {{item.homeworld.name}}</ion-item>
           <ion-item>Mass: {{selectedItem.mass}}</ion-item>
           <ion-item>Eye color: {{selectedItem.eye_color}}</ion-item>
           <ion-item>Hair color: {{selectedItem.hair_color}}</ion-item>

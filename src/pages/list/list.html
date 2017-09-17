@@ -16,7 +16,7 @@
         <ion-card>
           <img src="{{item.picture}}" (click)="itemTapped($event, item)">
           <div class="card-title" (click)="itemTapped($event, item)">{{item.name}}</div>
-          <div class="card-subtitle" (click)="itemTapped($event, item)">{{item.species}} from {{item.homeworld}}. Age: {{item.birth_year}}</div>
+          <div class="card-subtitle" (click)="itemTapped($event, item)">{{item.species.name}} from {{item.homeworld.name}}. Age: {{item.birth_year}}</div>
         </ion-card>
 
       </ion-col>

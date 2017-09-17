@@ -14,7 +14,7 @@ export class StarWarsProvider {
       for(let item of res.json().results) {
         outputArr.push({
           name: item.name,
-          picture: this.GetPicture(300),
+          picture: this.GetPicture(item.name,400),
           birth_year: item.birth_year,
           gender: item.gender,
           homeworld: item.homeworld,
@@ -42,15 +42,27 @@ export class StarWarsProvider {
   private GetUrlData(items, replaced){
     for(let item of items) {
       this.http.get(item[replaced]).toPromise().then(res => {
-        item[replaced] = res.json().name;
+        item[replaced] = res.json();
       });
     }
   }
 
-  private GetPicture(size){
-    const pictures = ['luke', 'han', 'leia', 'yoda', 'darthvader', 'r2d2', 'c3po', 'chewbacca', 'lando', 'stormtrooper', 'palpatine', 'jaba', 'boba', 'jawa', 'ewok', 'greedo'];
-    const random = pictures[Math.floor(Math.random() * pictures.length)];
-    return 'http://facetheforce.today/' + random + '/' + size;
+  private GetPicture(name, size){
+    const pictures = ['luke', 'han', 'leia', 'yoda', 'darthvader', 'r2d2', 'c3po', 'chewbacca', 'lando', 'stormtrooper', 'palpatine', 'jaba', 'boba', 'jawa', 'ewok', 'greedo', 'obiwan'];
+    const newName = name.replace(/-/g, "").toLowerCase();
+    const fistName = newName.split(" ")[0];
+    const secondName = newName.split(" ")[1];
+    for (let pic of pictures){
+      if(newName.includes(pic) || pic.includes(newName)) {
+        return 'http://facetheforce.today/' + pic + '/' + size;
+      } else if(fistName.includes(pic) || pic.includes(fistName)){
+        return 'http://facetheforce.today/' + pic + '/' + size;
+      } else if(secondName && (secondName.includes(pic) || secondName.includes(pic))){
+        return 'http://facetheforce.today/' + pic + '/' + size;
+      }
+    }
+    return 'http://facetheforce.today/stormtrooper/' + size;
+
   }
 
 }
