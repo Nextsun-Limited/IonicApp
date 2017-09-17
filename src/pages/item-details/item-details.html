@@ -1,9 +1,9 @@
 <ion-header>
-  <ion-navbar>
+  <ion-navbar color="dark">
     <button menuToggle *ngIf="!selectedItem">
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>selectedItem Details</ion-title>
+    <ion-title>{{item.name}} Details</ion-title>
   </ion-navbar>
 </ion-header>
 
@@ -11,23 +11,23 @@
 
   <ion-grid>
     <ion-row>
-      <ion-col col-12 col-md-5>
+      <ion-col col-12 col-md-6>
         <img  *ngIf="item" src="{{item.picture}}">
       </ion-col>
-      <ion-col col-12 col-md-6>
-        <h3 *ngIf="item">
+      <ion-col col-12 col-md-4>
+        <h1 *ngIf="item">
           {{item.name}}
-        </h3>
-        <ul  *ngIf="selectedItem">
-          <li>Age: {{item.birth_year}}</li>
-          <li>Gender: {{item.gender}}</li>
-          <li>Species: {{item.species}}</li>
-          <li>Homeworld: {{item.homeworld}}</li>
-          <li>Mass: {{selectedItem.mass}}</li>
-          <li>Eye color: {{selectedItem.eye_color}}</li>
-          <li>Hair color: {{selectedItem.hair_color}}</li>
-          <li>Skin color: {{selectedItem.skin_color}}</li>
-        </ul>
+        </h1>
+        <ion-list  *ngIf="selectedItem">
+          <ion-item>Age: {{item.birth_year}}</ion-item>
+          <ion-item>Gender: {{item.gender}}</ion-item>
+          <ion-item>Species: {{item.species}}</ion-item>
+          <ion-item>Homeworld: {{item.homeworld}}</ion-item>
+          <ion-item>Mass: {{selectedItem.mass}}</ion-item>
+          <ion-item>Eye color: {{selectedItem.eye_color}}</ion-item>
+          <ion-item>Hair color: {{selectedItem.hair_color}}</ion-item>
+          <ion-item>Skin color: {{selectedItem.skin_color}}</ion-item>
+        </ion-list>
       </ion-col>
     </ion-row>
   </ion-grid>

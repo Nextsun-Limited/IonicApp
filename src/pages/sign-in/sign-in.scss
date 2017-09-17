@@ -1,3 +1,15 @@
 page-sign-in {
-
+  h1 {
+    color: yellow;
+    text-align: center;
+    padding-top: 5vw;
+    font-size: 3rem;
+  }
+  ion-list.list-md{
+    background-color: transparent;
+    margin: 0 auto;
+    ion-item {
+      background-color: transparent;
+    }
+  }
 }

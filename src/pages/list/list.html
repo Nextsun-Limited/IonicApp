@@ -1,5 +1,5 @@
 <ion-header>
-  <ion-navbar>
+  <ion-navbar color="dark">
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
@@ -11,7 +11,7 @@
 
   <ion-grid>
     <ion-row>
-      <ion-col ion-item *ngFor="let item of items" col-12 col-sm-9 col-md-6 col-lg-4 col-xl-3>
+      <ion-col ion-item *ngFor="let item of items" col-12 col-md-6 col-lg-4 col-xl-3>
 
         <ion-card>
           <img src="{{item.picture}}" (click)="itemTapped($event, item)">

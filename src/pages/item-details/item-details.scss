@@ -1,5 +1,17 @@
 page-item-details {
   img{
     width: 100%;
+    border: 1px solid yellow;
+  }
+  h1, ion-item{
+    color: yellow;
+  }
+  ion-list.list-md{
+    background-color: transparent;
+    margin: 0 auto;
+    ion-item {
+      background-color: transparent;
+      color: yellow;
+    }
   }
 }

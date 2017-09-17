@@ -1,5 +1,5 @@
 <ion-header>
-  <ion-navbar>
+  <ion-navbar color="dark">
     <ion-title>Sign in</ion-title>
   </ion-navbar>
 </ion-header>
@@ -7,17 +7,28 @@
 
 <ion-content padding>
 
-  Email: <input type="email">
-  Password: <input type="password">
+  <h1>Star Wars API Data</h1>
 
-<!-- Fb Login
-  <p>Sign in with</p>
-  <button ion-button color="primary">Facebook</button>
--->
+  <ion-list col-12 col-sm-9 col-md-6 col-lg-3>
 
-  <p>
-    <button ion-button color="primary" (click)="signUp()">Sign Up</button>
-    <button ion-button color="primary-accent" (click)="signIn()">Sign In</button>
-  </p>
+    <ion-item>
+      <ion-label floating>Email</ion-label>
+      <ion-input type="email"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating>Password</ion-label>
+      <ion-input type="password"></ion-input>
+    </ion-item>
+
+    <ion-item>
+    </ion-item>
+
+  </ion-list>
+
+  <div text-center>
+    <button ion-button color="light" round outline (click)="signUp()">Sign Up</button>
+    <button ion-button color="light" round (click)="signIn()">Sign In</button>
+  </div>
 
 </ion-content>
